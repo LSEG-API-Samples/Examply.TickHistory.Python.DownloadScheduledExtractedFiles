@@ -3,7 +3,7 @@ import requests
 class DSSClient(object):
     """Datascope Client"""
     __token__ = ""
-    __dss_uri__ = "https://selectapi.datascope.refinitiv.com/RestApi/v1/"
+    __dss_uri__ = "https://selectapi.datascope.lseg.com/RestApi/v1/"
     __auth_endpoint__ =  "Authentication/RequestToken"
     __schedule_by_name_endpoint__ = "Extractions/ScheduleGetByName(ScheduleName='{}')"
     __schedule_endpoint__ = "Extractions/Schedules"
@@ -157,5 +157,6 @@ class DSSClient(object):
          with open(extracted_file["ExtractedFileName"], 'wb') as fd:
             for data in r.raw.stream(chunk_size,decode_content=decode):
                 fd.write(data)
+
 
        
